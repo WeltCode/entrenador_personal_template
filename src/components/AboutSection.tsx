@@ -1,54 +1,75 @@
 import portraitImg from "@/assets/trainer-portrait.jpg";
 import outdoorImg from "@/assets/trainer-outdoor.jpg";
 import coachingImg from "@/assets/trainer-coaching.jpg";
+import { useReveal } from "@/hooks/useReveal";
+
+const credentials = [
+  { k: "CERT.", v: "NSCA-CPT" },
+  { k: "BASE", v: "Barcelona" },
+  { k: "DESDE", v: "2018" },
+  { k: "IDIOMAS", v: "ES / EN / CAT" },
+];
 
 const AboutSection = () => {
+  const { ref, visible } = useReveal();
   return (
-    <section id="about" className="py-24 relative">
-      <div className="container">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <img src={portraitImg} alt="Carlos - retrato" loading="lazy" width={800} height={800} className="rounded-lg neon-border border object-cover w-full aspect-square" />
-                <img src={coachingImg} alt="Carlos entrenando clientes" loading="lazy" width={800} height={1000} className="rounded-lg border border-border object-cover w-full aspect-[3/4]" />
+    <section id="about" className="py-32 relative overflow-hidden">
+      <div className="glow-orb w-[400px] h-[400px] bg-primary/10 top-20 right-0" />
+
+      <div ref={ref} className={`reveal ${visible ? "is-visible" : ""} container relative`}>
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
+          {/* Image collage */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative">
+              <img src={portraitImg} alt="Carlos retrato" loading="lazy" width={800} height={1000} className="rounded-2xl border border-border object-cover w-full aspect-[4/5]" />
+              <div className="absolute -bottom-6 -right-6 w-2/3 aspect-[3/4] rounded-2xl overflow-hidden neon-border border animate-float-slow">
+                <img src={outdoorImg} alt="Carlos al aire libre" loading="lazy" width={600} height={800} className="w-full h-full object-cover" />
               </div>
-              <div className="mt-12">
-                <img src={outdoorImg} alt="Carlos entrenando al aire libre en Barcelona" loading="lazy" width={800} height={1000} className="rounded-lg border border-border object-cover w-full aspect-[3/5]" />
+              <div className="absolute -top-6 -left-6 w-1/2 aspect-square rounded-2xl overflow-hidden border border-border hidden md:block">
+                <img src={coachingImg} alt="Carlos entrenando" loading="lazy" width={500} height={500} className="w-full h-full object-cover" />
+              </div>
+              {/* sticker */}
+              <div className="absolute top-4 right-4 bg-primary text-primary-foreground rounded-full px-4 py-2 font-mono-display text-[10px] uppercase tracking-widest rotate-6">
+                ★ 500+ clientes
               </div>
             </div>
           </div>
 
-          <div>
-            <p className="text-primary font-semibold text-sm uppercase tracking-[0.3em] mb-3">Sobre Mí</p>
-            <h2 className="font-display text-5xl lg:text-6xl mb-6">
-              CARLOS <span className="gradient-neon-text">MENDOZA</span>
+          {/* Content */}
+          <div className="lg:col-span-7 lg:pl-8">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="font-mono-display text-[11px] uppercase tracking-[0.3em] text-primary">[03] — Sobre mí</span>
+              <span className="h-px w-12 bg-primary" />
+            </div>
+            <h2 className="font-display text-6xl lg:text-7xl leading-[0.9] mb-8">
+              No soy un<br />
+              entrenador <span className="text-outline">más.</span><br />
+              <span className="gradient-neon-text">Soy tu socio.</span>
             </h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+
+            <div className="space-y-5 text-muted-foreground leading-relaxed text-lg max-w-xl">
               <p>
-                Nacido en Colombia y establecido en Barcelona desde hace más de 10 años. Mi pasión por el fitness comenzó como una forma de superar retos personales, y hoy es mi forma de vida y mi manera de impactar a cientos de personas.
+                Nacido en <span className="text-foreground">Colombia</span>, formado en <span className="text-foreground">Barcelona</span>. Llevo casi una década traduciendo la disciplina del deporte de alto rendimiento al ritmo de la vida real de mis clientes.
               </p>
               <p>
-                Certificado en entrenamiento personal por la NSCA, especialista en transformación corporal y nutrición deportiva. Mi enfoque combina la disciplina con la motivación latina que nos caracteriza.
-              </p>
-              <p>
-                No creo en dietas extremas ni en entrenamientos genéricos. Cada plan es único, diseñado para tu cuerpo, tu estilo de vida y tus objetivos.
+                No vendo dietas milagro ni promesas vacías. Vendo un <span className="text-primary">método propio</span> probado en 500+ procesos: entrenamiento inteligente + nutrición sostenible + cabeza fuerte.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mt-8">
-              {[
-                { icon: "🎓", text: "Certificado NSCA" },
-                { icon: "🏋️", text: "Especialista en fuerza" },
-                { icon: "🥗", text: "Nutrición deportiva" },
-                { icon: "📍", text: "Barcelona, España" },
-              ].map((item) => (
-                <div key={item.text} className="flex items-center gap-3 bg-secondary rounded-lg p-3">
-                  <span className="text-xl">{item.icon}</span>
-                  <span className="text-sm font-medium text-foreground">{item.text}</span>
+            {/* Credentials grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border mt-10 border border-border rounded-xl overflow-hidden">
+              {credentials.map((c) => (
+                <div key={c.k} className="bg-card p-4 hover:bg-secondary transition-colors">
+                  <p className="font-mono-display text-[10px] uppercase tracking-widest text-primary">{c.k}</p>
+                  <p className="font-display text-xl text-foreground mt-1">{c.v}</p>
                 </div>
               ))}
             </div>
+
+            <div className="ticker-divider mt-10" />
+            <p className="font-mono-display text-[11px] uppercase tracking-widest text-muted-foreground mt-4">
+              — "Si vienes a por excusas, no soy tu coach. Si vienes a por cambios, empezamos hoy."
+            </p>
           </div>
         </div>
       </div>
