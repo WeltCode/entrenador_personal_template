@@ -1,5 +1,6 @@
 import heroImg from "@/assets/hero-trainer.jpg";
 import { IconArrow, IconPlay } from "./icons/ServiceIcons";
+import { TRAINER } from "@/config/trainer";
 
 const HeroSection = () => {
   return (
@@ -15,7 +16,7 @@ const HeroSection = () => {
       {/* Vertical meta rail */}
       <div className="hidden lg:flex absolute left-6 top-1/2 -translate-y-1/2 flex-col items-center gap-6 z-20">
         <span className="font-mono-display text-[10px] uppercase tracking-[0.3em] text-muted-foreground [writing-mode:vertical-rl] rotate-180">
-          EST · 2018 — Barcelona, ES
+          EST · {TRAINER.founded} — {TRAINER.city}, {TRAINER.country}
         </span>
         <div className="w-px h-24 bg-gradient-to-b from-primary to-transparent" />
       </div>
@@ -44,7 +45,7 @@ const HeroSection = () => {
             <div className="flex items-center gap-3 mb-6 animate-fade-in-up">
               <span className="h-px w-12 bg-primary" />
               <span className="font-mono-display text-[11px] uppercase tracking-[0.3em] text-primary">
-                [01] Entrenador Personal · Barcelona
+                [01] {TRAINER.heroSubline} · {TRAINER.city}
               </span>
             </div>
 
@@ -53,7 +54,7 @@ const HeroSection = () => {
               <span className="block text-[clamp(3.5rem,11vw,9rem)] text-outline">FORMA</span>
               <span className="block text-[clamp(3.5rem,11vw,9rem)] gradient-neon-text text-glow">TU CUERPO.</span>
               <span className="block text-[clamp(2rem,5.5vw,4.5rem)] font-archivo text-muted-foreground mt-2">
-                Reescribe tus límites<span className="text-primary">_</span>
+                {TRAINER.tagline}<span className="text-primary">_</span>
               </span>
             </h1>
 
@@ -77,7 +78,7 @@ const HeroSection = () => {
           {/* RIGHT: Image card */}
           <div className="lg:col-span-5 relative animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
             <div className="relative rounded-2xl overflow-hidden neon-border border aspect-[4/5]">
-              <img src={heroImg} alt="Carlos Mendoza, entrenador personal en Barcelona" width={1920} height={2400} className="w-full h-full object-cover" />
+              <img src={heroImg} alt={`${TRAINER.name}, ${TRAINER.heroSubline} en ${TRAINER.city}`} width={1920} height={2400} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background/60 to-transparent" />
 
@@ -95,9 +96,9 @@ const HeroSection = () => {
               <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
                 <div>
                   <p className="font-mono-display text-[10px] uppercase tracking-[0.3em] text-primary mb-1">// COACH</p>
-                  <p className="font-display text-3xl text-foreground">CARLOS MENDOZA</p>
+                  <p className="font-display text-3xl text-foreground">{TRAINER.name.toUpperCase()}</p>
                 </div>
-                <span className="font-mono-display text-[10px] text-muted-foreground">N 41.38° / E 2.17°</span>
+                <span className="font-mono-display text-[10px] text-muted-foreground">{TRAINER.coordinates}</span>
               </div>
             </div>
           </div>
@@ -106,8 +107,8 @@ const HeroSection = () => {
         {/* Stats strip */}
         <div className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-0 border-t border-border animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
           {[
-            { v: "500+", l: "Clientes transformados", n: "01" },
-            { v: "08", l: "Años de experiencia", n: "02" },
+          { v: TRAINER.clients, l: "Clientes transformados", n: "01" },
+            { v: `${new Date().getFullYear() - parseInt(TRAINER.founded)}`, l: "Años de experiencia", n: "02" },
             { v: "98%", l: "Tasa de satisfacción", n: "03" },
             { v: "24/7", l: "Acompañamiento", n: "04" },
           ].map((s, i) => (

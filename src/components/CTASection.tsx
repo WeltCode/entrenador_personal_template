@@ -1,4 +1,5 @@
 import { IconArrow } from "./icons/ServiceIcons";
+import { TRAINER } from "@/config/trainer";
 
 const CTASection = () => {
   return (
@@ -26,7 +27,7 @@ const CTASection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <a
-              href="https://wa.me/34600000000"
+              href={`https://wa.me/${TRAINER.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-between gap-4 px-8 py-5 rounded-full gradient-neon text-primary-foreground font-bold overflow-hidden animate-pulse-neon"
@@ -38,7 +39,7 @@ const CTASection = () => {
               </span>
             </a>
             <a
-              href="mailto:carlos@carlosfit.com"
+              href={`mailto:${TRAINER.email}`}
               className="inline-flex items-center justify-center gap-2 px-8 py-5 rounded-full border border-primary/30 text-foreground font-semibold hover:bg-primary/10 transition-all"
             >
               Enviar email
@@ -47,9 +48,9 @@ const CTASection = () => {
 
           <div className="grid sm:grid-cols-3 gap-px bg-border border border-border rounded-2xl overflow-hidden max-w-2xl mx-auto">
             {[
-              { k: "UBICACIÓN", v: "Barcelona, ES" },
-              { k: "TELÉFONO", v: "+34 600 000 000" },
-              { k: "EMAIL", v: "carlos@carlosfit.com" },
+            { k: "UBICACIÓN", v: `${TRAINER.city}, ${TRAINER.country}` },
+              { k: "TELÉFONO", v: TRAINER.phone },
+              { k: "EMAIL", v: TRAINER.email },
             ].map((i) => (
               <div key={i.k} className="bg-card p-5 hover:bg-secondary transition-colors">
                 <p className="font-mono-display text-[10px] uppercase tracking-widest text-primary">{i.k}</p>

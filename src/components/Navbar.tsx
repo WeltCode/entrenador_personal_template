@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { TRAINER } from "@/config/trainer";
 
 const navLinks = [
   { label: "Inicio", href: "#hero" },
@@ -16,7 +17,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container flex items-center justify-between h-16">
         <a href="#hero" className="font-display text-2xl tracking-widest gradient-neon-text">
-          CARLOS FIT
+          {TRAINER.brand}
         </a>
 
         <div className="hidden md:flex items-center gap-8">

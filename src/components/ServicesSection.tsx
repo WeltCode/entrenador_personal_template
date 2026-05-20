@@ -16,7 +16,7 @@ const services = [
     title: "Entrenamiento Grupal",
     tagline: "Hasta 6 personas",
     description: "La intensidad del 1 a 1 con la energía del grupo. Comunidad que empuja.",
-    features: ["Grupos reducidos", "Ambiente latino", "Precio accesible"],
+    features: ["Grupos reducidos", "Ambiente motivador", "Precio accesible"],
   },
   {
     n: "03",
@@ -24,7 +24,7 @@ const services = [
     title: "Nutrición Deportiva",
     tagline: "Sin dietas extremas",
     description: "Comer rico, comer bien. Plan adaptado a tu cultura y rutina diaria.",
-    features: ["Plan alimenticio real", "Recetas latinas", "Ajustes mensuales"],
+    features: ["Plan alimenticio real", "Recetas adaptadas", "Ajustes mensuales"],
   },
   {
     n: "04",

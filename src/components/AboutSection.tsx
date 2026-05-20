@@ -2,12 +2,13 @@ import portraitImg from "@/assets/trainer-portrait.jpg";
 import outdoorImg from "@/assets/trainer-outdoor.jpg";
 import coachingImg from "@/assets/trainer-coaching.jpg";
 import { useReveal } from "@/hooks/useReveal";
+import { TRAINER } from "@/config/trainer";
 
 const credentials = [
-  { k: "CERT.", v: "NSCA-CPT" },
-  { k: "BASE", v: "Barcelona" },
-  { k: "DESDE", v: "2018" },
-  { k: "IDIOMAS", v: "ES / EN / CAT" },
+  { k: "CERT.", v: TRAINER.certifications },
+  { k: "BASE", v: TRAINER.city },
+  { k: "DESDE", v: TRAINER.founded },
+  { k: "IDIOMAS", v: TRAINER.languages },
 ];
 
 const AboutSection = () => {
@@ -30,7 +31,7 @@ const AboutSection = () => {
               </div>
               {/* sticker */}
               <div className="absolute top-4 right-4 bg-primary text-primary-foreground rounded-full px-4 py-2 font-mono-display text-[10px] uppercase tracking-widest rotate-6">
-                ★ 500+ clientes
+                ★ {TRAINER.clients} clientes
               </div>
             </div>
           </div>
@@ -49,10 +50,10 @@ const AboutSection = () => {
 
             <div className="space-y-5 text-muted-foreground leading-relaxed text-lg max-w-xl">
               <p>
-                Nacido en <span className="text-foreground">Colombia</span>, formado en <span className="text-foreground">Barcelona</span>. Llevo casi una década traduciendo la disciplina del deporte de alto rendimiento al ritmo de la vida real de mis clientes.
+                Especializado en <span className="text-foreground">transformaciones reales</span>, trabajo con clientes en <span className="text-foreground">{TRAINER.city}</span> y online desde {TRAINER.founded}. Llevo {new Date().getFullYear() - parseInt(TRAINER.founded)} años convirtiendo la disciplina del deporte en resultados tangibles para mis clientes.
               </p>
               <p>
-                No vendo dietas milagro ni promesas vacías. Vendo un <span className="text-primary">método propio</span> probado en 500+ procesos: entrenamiento inteligente + nutrición sostenible + cabeza fuerte.
+                No vendo dietas milagro ni promesas vacías. Vendo un <span className="text-primary">método propio</span> probado en {TRAINER.clients} procesos: entrenamiento inteligente + nutrición sostenible + cabeza fuerte.
               </p>
             </div>
 
@@ -68,7 +69,7 @@ const AboutSection = () => {
 
             <div className="ticker-divider mt-10" />
             <p className="font-mono-display text-[11px] uppercase tracking-widest text-muted-foreground mt-4">
-              — "Si vienes a por excusas, no soy tu coach. Si vienes a por cambios, empezamos hoy."
+              — "{TRAINER.quote}"
             </p>
           </div>
         </div>
