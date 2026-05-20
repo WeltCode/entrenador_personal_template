@@ -20,13 +20,7 @@ const WhatsAppButton = () => {
         {/* Fondo degradado neon al hover */}
         <div className="absolute inset-0 rounded-full gradient-neon opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
 
-        {/* HUD corners */}
-        <div className="absolute top-1.5 left-1.5 w-2.5 h-2.5 border-l border-t border-primary/60" />
-        <div className="absolute top-1.5 right-1.5 w-2.5 h-2.5 border-r border-t border-primary/60" />
-        <div className="absolute bottom-1.5 left-1.5 w-2.5 h-2.5 border-l border-b border-primary/60" />
-        <div className="absolute bottom-1.5 right-1.5 w-2.5 h-2.5 border-r border-b border-primary/60" />
-
-        {/* Icono WhatsApp en primary neon */}
+        {/* Icono WhatsApp en primary neon */
         <svg
           viewBox="0 0 24 24"
           className="w-7 h-7 fill-current text-primary relative z-10 drop-shadow-[0_0_8px_hsl(142_100%_55%_/_0.9)]"
