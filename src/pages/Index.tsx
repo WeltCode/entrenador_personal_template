@@ -7,6 +7,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import Marquee from "@/components/Marquee";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
       <TestimonialsSection />
       <CTASection />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
