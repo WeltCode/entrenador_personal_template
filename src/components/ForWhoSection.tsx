@@ -11,7 +11,6 @@ import {
   IconLeaf,
   IconSpark,
 } from "./icons/ServiceIcons";
-import { TRAINER } from "@/config/trainer";
 
 type Profile = (typeof TRAINER.targetProfiles)[number];
 
