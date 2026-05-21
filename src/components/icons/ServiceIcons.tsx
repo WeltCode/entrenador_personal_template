@@ -45,3 +45,35 @@ export const IconPlay = ({ className = "w-5 h-5" }: P) => (
     <path d="M7 5v14l12-7z" />
   </svg>
 );
+
+export const IconFlame = ({ className = base }: P) => (
+  <svg viewBox="0 0 64 64" className={className} fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M32 8C28 18 18 24 18 36a14 14 0 0028 0C46 24 38 16 32 8z" />
+    <circle cx="32" cy="46" r="3" fill="currentColor" opacity=".5" />
+  </svg>
+);
+
+export const IconTarget = ({ className = base }: P) => (
+  <svg viewBox="0 0 64 64" className={className} fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="32" cy="32" r="22" />
+    <circle cx="32" cy="32" r="12" />
+    <circle cx="32" cy="32" r="4" fill="currentColor" opacity=".4" />
+    <line x1="32" y1="6" x2="32" y2="16" />
+    <line x1="32" y1="48" x2="32" y2="58" />
+    <line x1="6" y1="32" x2="16" y2="32" />
+    <line x1="48" y1="32" x2="58" y2="32" />
+  </svg>
+);
+
+export const IconShield = ({ className = base }: P) => (
+  <svg viewBox="0 0 64 64" className={className} fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M32 6L10 16v18c0 13 10 22 22 24 12-2 22-11 22-24V16L32 6z" />
+    <path d="M22 32l7 7 13-13" />
+  </svg>
+);
+
+export const IconBolt = ({ className = base }: P) => (
+  <svg viewBox="0 0 64 64" className={className} fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M36 6L16 34h16l-4 24 20-28H32L36 6z" />
+  </svg>
+);

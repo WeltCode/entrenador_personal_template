@@ -67,6 +67,27 @@ const AboutSection = () => {
               ))}
             </div>
 
+            {/* Certificaciones como badges */}
+            {TRAINER.certBadges.length > 0 && (
+              <div className="flex flex-wrap gap-2 mt-8">
+                {TRAINER.certBadges.map((cert) => (
+                  <div
+                    key={cert.name}
+                    className="flex items-center gap-2 border border-primary/30 rounded-full px-4 py-1.5 bg-card/50 backdrop-blur-sm hover:border-primary/60 transition-colors"
+                  >
+                    {cert.logoUrl ? (
+                      <img src={cert.logoUrl} alt={cert.name} className="h-4 w-auto object-contain" />
+                    ) : (
+                      <span className="text-primary font-mono-display text-[10px]">✦</span>
+                    )}
+                    <span className="font-mono-display text-[10px] uppercase tracking-widest text-foreground">
+                      {cert.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+
             <div className="ticker-divider mt-10" />
             <p className="font-mono-display text-[11px] uppercase tracking-widest text-muted-foreground mt-4">
               — "{TRAINER.quote}"

@@ -1,5 +1,6 @@
 import { IconBarbell, IconPulse, IconLeaf, IconSpark, IconArrow } from "./icons/ServiceIcons";
 import { useReveal } from "@/hooks/useReveal";
+import { TRAINER } from "@/config/trainer";
 
 const services = [
   {
@@ -68,12 +69,17 @@ const ServiceCard = ({ s, i }: { s: typeof services[number]; i: number }) => {
         ))}
       </ul>
 
-      <div className="relative flex items-center justify-between text-primary opacity-60 group-hover:opacity-100 transition-opacity">
+      <a
+        href={`https://wa.me/${TRAINER.whatsapp}?text=${encodeURIComponent(`¡Hola ${TRAINER.brand}! Me interesa el servicio de ${s.title}. ¿Puedes darme más información?`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative flex items-center justify-between text-primary opacity-60 group-hover:opacity-100 transition-opacity"
+      >
         <span className="font-mono-display text-[11px] uppercase tracking-[0.2em]">Saber más</span>
         <span className="w-8 h-8 rounded-full border border-primary/40 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all">
           <IconArrow className="w-3.5 h-3.5" />
         </span>
-      </div>
+      </a>
     </article>
   );
 };
